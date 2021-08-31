@@ -39,37 +39,44 @@ var gr_routes_vl_data;
 var gr_routes_wa_data;
 var gr_12_data;
 var gr_12_slaapplaatsen_data;
+var oosterijk_data;
+var oosterijk_slaapplaatsen_data;
 
-loadJSON("../data/stations.geojson", (e) => {
+loadJSON("./data/stations.geojson", (e) => {
     stationdata = JSON.parse(e);
     //displayFeatureList(stationdata, "stations");
 });
 
-loadJSON("../data/alle_plekjes.geojson", (e) => {
+loadJSON("./data/alle_plekjes.geojson", (e) => {
     alleplekjesdata = JSON.parse(e);
     //displayFeatureList(stationdata, "stations");
 });
-loadJSON("../data/gr_list_vlaanderen.geojson", (e) => {
+loadJSON("./data/gr_list_vlaanderen.geojson", (e) => {
     gr_routes_vl_data = JSON.parse(e);
     //displayFeatureList(stationdata, "stations");
 });
 
-loadJSON("../data/gr_list_wallonie.geojson", (e) => {
+loadJSON("./data/gr_list_wallonie.geojson", (e) => {
     gr_routes_wa_data = JSON.parse(e);
     //displayFeatureList(stationdata, "stations");
 });
-loadJSON("../data/gr_12.geojson", (e) => {
+loadJSON("./data/gr_12.geojson", (e) => {
     gr_12_data = JSON.parse(e);
     //displayFeatureList(stationdata, "stations");
 });
 
-loadJSON("../data/gr_12_slaapplaatsen.geojson", (e) => {
-    gr_12_slaapplaatsen_data = JSON.parse(e);
+loadJSON("./data/Osterreich_zeltplatzen.geojson", (e) => {
+    oosterijk_data = JSON.parse(e);
+    //displayFeatureList(stationdata, "stations");
+});
+
+loadJSON("./data/Osterreich_zeltplatzen.geojson", (e) => {
+    oosterijk_slaapplaatsen_data = JSON.parse(e);
     //displayFeatureList(stationdata, "stations");
 });
 
 
-// upload file
+// UPLOAD FILE
 var filedata;
 function openFile(event) {
     var input = event.target;

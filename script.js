@@ -1,15 +1,12 @@
 // SETUP MAP 
 var map_123 = setupMap();
 
-
-
 // SETUP DATA
-
  let listOfDataNames = ["stations","plekjes"];
 
 
+// USER LOCATION FUNCTIONS
 function getLocation() {
-    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
@@ -24,6 +21,4 @@ function showPosition(position) {
     L.marker([position.coords.latitude,position.coords.longitude]).addTo(geojson_features);
 
     layercontrol.addOverlay(geojson_features,'user location')
-
-    
 }

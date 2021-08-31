@@ -27,6 +27,13 @@
 				right: 0;
 				left: 0;
 			}
+			#map_123 {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				left: 0%;
+				top: 0%;
+			}
 		</style>
 
 		<!-- LEAFLET -->
@@ -77,15 +84,7 @@
 			content="width=device-width,
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 		/>
-		<style>
-			#map_123 {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				left: 0%;
-				top: 0%;
-			}
-		</style>
+
 	</head>
 	<body>
 		<!-- MAP -->
@@ -100,7 +99,7 @@
 					aria-controls="offcanvasExample"
                     style="margin-top: 10px; margin-left: 50px; position: relative; z-index: 9999; pointer-events: auto;"
 				>
-					sidebar
+					Menu
 				</button>
 			</div>
 		</div>
@@ -135,7 +134,7 @@
 						<button
 							type="button"
 							class="btn btn-light"
-							onclick="handleForm()"
+							onclick="addSelectedItemsToMap()"
 						>
 							Map
 						</button>
@@ -293,7 +292,26 @@
 						<div class="collapse" id="collapseExample4">
 							<div class="card card-body">
 								<ul style="list-style-type: none">
-								
+                                    <li>
+										&nbsp;
+										<input
+											type="checkbox"
+											id="oosterijk_routes"
+											name="data6"
+											autocomplete="off"
+										/>
+										<label for="data6">Oosterijk klimroutes</label>
+									</li>
+									<li>
+										&nbsp;
+										<input
+											type="checkbox"
+											id="oosterijk_slaapplaatsen"
+											name="data7"
+											autocomplete="off"
+										/>
+										<label for="data7">Oosterijk slaapplaatsen</label>
+									</li>
 								</ul>
 							</div>
 						</div>

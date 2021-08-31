@@ -39,13 +39,15 @@ function makeList(listOfDataNames) {
     }
 }
 
-function handleForm() {
+function addSelectedItemsToMap() {
 	var stationsbool = document.getElementById("stations").checked;
 	var plekjesbool = document.getElementById("plekjes").checked;
     var gr_routes_vl_bool = document.getElementById("gr_routes_vl").checked;
     var gr_routes_wa_bool = document.getElementById("gr_routes_wa").checked;
     var gr_12_bool = document.getElementById("gr_12").checked;
     var gr_12_slaapplaatsen_bool = document.getElementById("gr_12_slaapplaatsen").checked;
+    var oosterijk_bool = document.getElementById("oosterijk_routes").checked;
+    var oosterijk_slaapplaatsen_bool = document.getElementById("oosterijk_slaapplaatsen").checked;
 
 	map_123.off();
 	map_123.remove();
@@ -56,7 +58,6 @@ function handleForm() {
     if (stationsbool) {
         displayFeatureList(stationdata, "stations");
     }
-
 	if (plekjesbool) {
 		displayFeatureList(alleplekjesdata, "alle plekjes");
 	}
@@ -74,8 +75,11 @@ function handleForm() {
     if (gr_12_slaapplaatsen_bool) {
 		displayFeatureList(gr_12_slaapplaatsen_data, "gr 12 slaapplaatsen");
 	}
-}
 
-function Action(){
-    console.log("hllo")
+    if (oosterijk_bool) {
+		displayFeatureList(oosterijk_data, "oosterijk");
+	}
+    if (oosterijk_slaapplaatsen_bool) {
+		displayFeatureList(oosterijk_slaapplaatsen_data, "oosterijk slaapplaatsen");
+	}
 }

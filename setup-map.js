@@ -23,8 +23,6 @@ function setupMap() {
 		}
 	);
 
-
-
     // ZOOM
 	L.control.scale().addTo(map_123);
 
@@ -58,12 +56,10 @@ function setupMap() {
 		drawnItems.addLayer(layer);
 	});
 
-	var helloPopup = L.popup().setContent("Hello World!");
-
 	return map_123;
 }
 
-var campingMarkerOptions = {
+var polygonMarkerOptions = {
 	radius: 2,
 	fillColor: "green",
 	color: "green",
@@ -72,7 +68,7 @@ var campingMarkerOptions = {
 	fillOpacity: 0.2,
 };
 
-var stationMarkerOptions = {
+var pointMarkerOptions = {
 	radius: 3,
 	fillColor: "red",
 	color: "red",
@@ -111,14 +107,14 @@ function displayFeatureList(featurelist, file_name) {
 
 	if (type == "MultiPolygon" || type == "Polygon") {
 		var areas = new L.GeoJSON(featurelist, {
-			style: campingMarkerOptions,
+			style: polygonMarkerOptions,
 			onEachFeature: addPopUp,
 		}).addTo(geojson_features);
 	} else if (type == "Point") {
 		for (let i = 0; i < featurelist.features.length; i++) {
 			L.geoJSON(featurelist.features[i], {
 				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, stationMarkerOptions);
+					return L.circleMarker(latlng, pointMarkerOptions);
 				},
 				onEachFeature: addPopUp,
 			}).addTo(geojson_features);
@@ -133,36 +129,6 @@ function displayFeatureList(featurelist, file_name) {
 
 	// add to control
 	layercontrol.addOverlay(geojson_features, file_name);
-}
-
-function displayFeatureList2(featurelist, type) {
-	// new featuregroup layer
-	geojson_features = L.featureGroup().addTo(map_123);
-
-	if (type == "alleplekjes") {
-		var areas = new L.GeoJSON(featurelist, {
-			style: campingMarkerOptions,
-			onEachFeature: addPopUp,
-		}).addTo(geojson_features);
-	} else if (type == "stations") {
-		for (let i = 0; i < featurelist.features.length; i++) {
-			L.geoJSON(featurelist.features[i], {
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, stationMarkerOptions);
-				},
-				onEachFeature: addPopUp,
-			}).addTo(geojson_features);
-		}
-	} else if (type == "gr") {
-		for (let i = 0; i < featurelist.features.length; i++) {
-			L.geoJSON(featurelist.features[i], {
-				onEachFeature: addToolTip,
-			}).addTo(geojson_features);
-		}
-	}
-
-	// add to control
-	layercontrol.addOverlay(geojson_features, type);
 }
 
 function clearMap() {

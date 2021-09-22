@@ -42,7 +42,18 @@ var gr_12_slaapplaatsen_data;
 var oosterijk_data;
 var oosterijk_slaapplaatsen_data;
 
-loadJSON("./data/stations.geojson", (e) => {
+
+
+var mongo_document_names;
+var mongodata;
+loadJSON("https://that-map-app.herokuapp.com/all_places", (e) => {
+    mongodata = JSON.parse(e);
+    mongo_document_names = mongodata.map(x => x.name)
+    createCheckBoxList(mongo_document_names)
+    //displayFeatureList(stationdata, "stations");
+});
+
+loadJSON("https://tijsvandenheuvel.github.io/map-app/data/stations.geojson", (e) => {
     stationdata = JSON.parse(e);
     //displayFeatureList(stationdata, "stations");
 });

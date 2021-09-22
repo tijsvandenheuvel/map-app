@@ -24,6 +24,7 @@
 - easier way to add more files
 - fix sidebar/menu button
 - zoom out to show all data when loading map
+- when 'clear', clear all checkboxes
   
 
 

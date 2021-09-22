@@ -84,6 +84,7 @@
 			content="width=device-width,
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 		/>
+
 	</head>
 	<body>
 		<!-- MAP -->
@@ -96,13 +97,7 @@
 					data-bs-toggle="offcanvas"
 					data-bs-target="#offcanvasExample"
 					aria-controls="offcanvasExample"
-					style="
-						margin-top: 10px;
-						margin-left: 50px;
-						position: relative;
-						z-index: 9999;
-						pointer-events: auto;
-					"
+                    style="margin-top: 10px; margin-left: 50px; position: relative; z-index: 9999; pointer-events: auto;"
 				>
 					Menu
 				</button>
@@ -161,8 +156,165 @@
 						</button>
 					</li>
 					<br />
-					<!-- mongo files -->
-					<li id ="checkboxes">
+					<!-- sidebar random files -->
+					<li>
+						<button
+							class="btn btn-primary"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseExample"
+							aria-expanded="false"
+							aria-controls="collapseExample"
+						>
+							geojson files
+						</button>
+						<div class="collapse" id="collapseExample">
+							<div class="card card-body">
+								<ul style="list-style-type: none">
+									<li>
+										<input
+											type="checkbox"
+											id="plekjes"
+											name="data1"
+											autocomplete="off"
+										/>
+										<label for="data1">
+											leuke plekjes</label
+										>
+									</li>
+									<li>
+										<input
+											type="checkbox"
+											id="stations"
+											name="data2"
+											autocomplete="off"
+										/>
+										<label for="data2">
+											NMBS stations</label
+										>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+
+					<!-- sidebar GR belgie -->
+					<li>
+						<button
+							class="btn btn-primary"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseExample2"
+							aria-expanded="false"
+							aria-controls="collapseExample2"
+						>
+							GR België
+						</button>
+						<div class="collapse" id="collapseExample2">
+							<div class="card card-body">
+								<ul style="list-style-type: none">
+									<li>
+										<input
+											type="checkbox"
+											id="gr_routes_vl"
+											name="data3"
+											autocomplete="off"
+										/>
+										<label for="data3"> gr_routes_vl</label>
+									</li>
+
+									<li>
+										<input
+											type="checkbox"
+											id="gr_routes_wa"
+											name="data3"
+											autocomplete="off"
+										/>
+										<label for="data3"> gr_routes_wa</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+
+					<!-- sidebar GR 12 -->
+					<li>
+						<button
+							class="btn btn-primary"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseExample3"
+							aria-expanded="false"
+							aria-controls="collapseExample3"
+						>
+							GR 12
+						</button>
+						<div class="collapse" id="collapseExample3">
+							<div class="card card-body">
+								<ul style="list-style-type: none">
+									<li>
+										&nbsp;
+										<input
+											type="checkbox"
+											id="gr_12"
+											name="data4"
+											autocomplete="off"
+										/>
+										<label for="data4">GR12</label>
+									</li>
+									<li>
+										&nbsp;
+										<input
+											type="checkbox"
+											id="gr_12_slaapplaatsen"
+											name="data5"
+											autocomplete="off"
+										/>
+										<label for="data5">GR12 slaapplaatsen</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+
+                    <!-- sidebar Oosterijk -->
+					<li>
+						<button
+							class="btn btn-primary"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseExample4"
+							aria-expanded="false"
+							aria-controls="collapseExample4"
+						>
+							Oosterijk zomer 2021
+						</button>
+						<div class="collapse" id="collapseExample4">
+							<div class="card card-body">
+								<ul style="list-style-type: none">
+                                    <li>
+										&nbsp;
+										<input
+											type="checkbox"
+											id="oosterijk_routes"
+											name="data6"
+											autocomplete="off"
+										/>
+										<label for="data6">Oosterijk klimroutes</label>
+									</li>
+									<li>
+										&nbsp;
+										<input
+											type="checkbox"
+											id="oosterijk_slaapplaatsen"
+											name="data7"
+											autocomplete="off"
+										/>
+										<label for="data7">Oosterijk slaapplaatsen</label>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</li>
 					<br />
 					<!-- sidebar upload file -->

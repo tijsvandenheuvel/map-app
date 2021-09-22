@@ -131,7 +131,7 @@ function displayFeatureList(featurelist, file_name) {
 	layercontrol.addOverlay(geojson_features, file_name);
 }
 
-function clearMap() {
+function resetMap() {
 	map_123.off();
 	map_123.remove();
 

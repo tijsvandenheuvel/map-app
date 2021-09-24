@@ -8,11 +8,11 @@ var map_123 = setupMap();
 // USER LOCATION FUNCTIONS
 function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition,e=>{console.log(e)});
     } else {
-      console.log("Geolocation is not supported by this browser.");
+        console.log("Geolocation is not supported by this browser.");
     }
-  }
+}
 
 function showPosition(position) {
     console.log('locating user')

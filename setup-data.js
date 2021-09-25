@@ -31,6 +31,24 @@ function loadSingleJSON(query,file_name,callback) {
     //console.log({name:query})
 }
 
+// REQUEST SINGLE GEOJSON FILE
+function postJSON(object,uri,callback) {   
+
+    var xobj = new XMLHttpRequest();
+    //xobj.overrideMimeType("application/json");
+    xobj.open('POST', uri, true); 
+    xobj.setRequestHeader("Content-Type", "application/json");
+    xobj.send(JSON.stringify(object));  
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    
+    //console.log({name:query})
+}
+
 // LOAD ALL FILENAMES FROM BACKEND
 
 var mongo_document_names;
@@ -45,12 +63,21 @@ loadJSON("https://that-map-app.herokuapp.com/all_place_names", (e) => {
 // LOAD SINGLE FILE FROM BACKEND
 function getAndDisplaySingleFileFromMongo(name){
     var mongo_single_file;
-    loadSingleJSON(name,"https://that-map-app.herokuapp.com/single_place", (e) => {
+    loadSingleJSON(name,"https://that-map-app.herokuapp.com/find_single_place", (e) => {
         mongo_single_file = JSON.parse(e);
         //console.log(mongo_single_file)
         displayFeatureList(mongo_single_file.geojson,mongo_single_file.name);
     });
 }
+
+// SAVE  FILE TO BACKEND
+function postFileToMongo(name,geojson){
+    var obj = {"name":name,"geojson":geojson}
+    postJSON(obj,"https://that-map-app.herokuapp.com/single_place", (e) => {
+        console.log(e)
+    });
+}
+
 
 // display LOCAL FILE
 var filedata;
@@ -68,7 +95,7 @@ function openFile(event) {
     file_name = input.files[0].name
     displayFeatureList(filedata,file_name);
     };
-  };
+};
 
 
 // DEPRECATED

@@ -2,7 +2,7 @@
 var map_123 = setupMap();
 
 // SETUP DATA
- let listOfDataNames = ["stations","plekjes"];
+// let listOfDataNames = ["stations","plekjes"];
 
 
 // USER LOCATION FUNCTIONS

@@ -23,7 +23,7 @@ function setupMap() {
 		}
 	);
 
-    // ZOOM
+	// ZOOM
 	L.control.scale().addTo(map_123);
 
 	// DRAW
@@ -42,10 +42,12 @@ function setupMap() {
 				},
 			},
 			draw: {
-				polygon: {
-					allowIntersection: false,
-					showArea: true,
-				},
+				polygon: false, // {allowIntersection: false,showArea: true,},
+				polyline: false,
+				rectangle: false,
+				circlemarker: false,
+				circle: false,
+				marker: true,
 			},
 		})
 	);
@@ -53,10 +55,37 @@ function setupMap() {
 	map_123.on(L.Draw.Event.CREATED, function (event) {
 		var layer = event.layer;
 
-		drawnItems.addLayer(layer);
+		//if(event.layerType=="marker"){}
+
+		layer.properties = {};
+		var feature = (layer.feature = layer.feature || {});
+		feature.type = "Feature";
+		feature.properties = feature.properties || {};
+
+		marker_name = doPrompt("enter location name");
+
+		if (marker_name != null && marker_name != " ") {
+			feature.properties["name"] = marker_name;
+
+			layer.bindPopup(feature.properties["name"]);
+
+			drawnItems.addLayer(layer);
+		}
 	});
 
 	return map_123;
+}
+
+function saveDrawMarkers() {
+	var json_feature_collection = drawnItems.toGeoJSON();
+
+	if (json_feature_collection.features.length != 0) {
+		file_name = doPrompt("enter file name");
+        
+		if (file_name != null && file_name != " ") {
+			postFileToMongo(file_name, json_feature_collection);
+		}
+	}
 }
 
 var polygonMarkerOptions = {

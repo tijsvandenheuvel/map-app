@@ -37,6 +37,10 @@ function addSelectedItemsToMap() {
     }
 }
 
+function doPrompt(question) {
+    return prompt(question, " ");
+  }
+
 // DEPRECATED
 
 // function addSelectedItemsToMap22222222() {

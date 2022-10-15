@@ -2,7 +2,7 @@
 function loadJSON(file_name,callback) {   
 
     var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
+    xobj.overrideMimeType("application/json");
     xobj.open('GET', file_name, true); 
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
